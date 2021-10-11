@@ -114,4 +114,11 @@ public class EmployeeController {
 
   }
 
+    @GetMapping("/get_all")
+  public ResponseEntity<?> getAll()
+  {
+      List<Employee> list = this.employeeDao.findAll();
+      return ResponseEntity.status(HttpStatus.OK).body(list);
+  }
+
 }

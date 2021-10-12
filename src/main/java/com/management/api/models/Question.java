@@ -1,5 +1,6 @@
 package com.management.api.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class Question {
     private int id;
     private String question;
 
-    @OneToMany(mappedBy = "question1")
+    @OneToMany(mappedBy = "question1",fetch = FetchType.EAGER)
+    @JsonManagedReference("id")
     private List<Answer> answers;
 }

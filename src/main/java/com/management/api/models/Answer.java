@@ -1,5 +1,6 @@
 package com.management.api.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,5 +20,6 @@ public class Answer {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "question_id")
+    @JsonBackReference("id")
     private Question question1;
 }

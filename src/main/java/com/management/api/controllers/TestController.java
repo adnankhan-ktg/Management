@@ -161,4 +161,12 @@ public class TestController {
        }
 
 
+          @GetMapping("/get_question_answer")
+          public ResponseEntity<?> getQuestionAnswer()
+          {
+               List<Question> lis  = this.questionRepository.findAll();
+               return ResponseEntity.status(HttpStatus.OK).body(lis);
+          }
+
+
 }
